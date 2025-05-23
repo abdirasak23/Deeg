@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard | Deeg</title>
+    
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <div class="top-level">
+                <div class="logo">
+                    <img src="../assets/images/gre.png" alt="Logo">
+                </div>
+                <div class="slide">
+                    <i class="bx bx-menu-alt-left"></i>
+                </div>
+            </div>
+            <div class="nav-item active" data-page="dashboard">
+                <p>Dashboard</p>
+            </div>
+            <div class="nav-item" data-page="list-new">
+                <p>List New</p>
+            </div>
+            <div class="nav-item" data-page="products">
+                <p>Products</p>
+            </div>
+        </div>
+        <div class="right">
+            <!-- Dashboard Page -->
+            <div class="page active" id="dashboard">
+                <h2 class="page-title">Dashboard</h2>
+                <div class="dashboard-content">
+                    <div class="dashboard-card">
+                        <h3>Total Sales</h3>
+                        <p>$12,450</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>New Orders</h3>
+                        <p>24</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Active Products</h3>
+                        <p>126</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h3>Customers</h3>
+                        <p>1,243</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- List New Page -->
+            <div class="page" id="list-new">
+                <h2 class="page-title">List New Product</h2>
+                <div class="new-list-form">
+                    <form id="new-product-form">
+                        <!-- Basic Information -->
+                        <div class="form-section">
+                            <h3>Basic Information</h3>
+                            <div class="form-group">
+                                <label for="product-name">Product Name *</label>
+                                <input type="text" id="product-name" placeholder="Enter product name" required>
+                            </div>
+                            
+                            <div class="price-row">
+                                <div class="form-group">
+                                    <label for="product-price">Current Price ($) *</label>
+                                    <input type="number" id="product-price" placeholder="Current price" step="0.01" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product-old-price">Old Price ($)</label>
+                                    <input type="number" id="product-old-price" placeholder="Old price (if on sale)" step="0.01" min="0">
+                                </div>
+                            </div>
+                            
+                            <div class="price-row">
+                                <div class="form-group">
+                                    <label for="product-category">Category *</label>
+                                    <select id="product-category" required>
+                                        <option value="" disabled selected>Select category</option>
+                                        <option value="electronics">Electronics</option>
+                                        <option value="clothing">Clothing</option>
+                                        <option value="home">Home & Kitchen</option>
+                                        <option value="beauty">Beauty & Personal Care</option>
+                                        <option value="sports">Sports & Outdoors</option>
+                                        <option value="toys">Toys & Games</option>
+                                        <option value="books">Books</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product-quantity">Quantity *</label>
+                                    <input type="number" id="product-quantity" placeholder="Available quantity" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Images -->
+                        <div class="form-section">
+                            <h3>Product Images</h3>
+                            <p class="help-text">Upload up to 4 product images. First image will be used as the main product image.</p>
+                            
+                            <div class="image-upload-container">
+                                <div class="image-upload-box">
+                                    <input type="file" id="product-image-1" accept="image/*" class="image-input">
+                                    <div class="image-placeholder">
+                                        <i class='bx bx-image-add'></i>
+                                        <p>Main Image *</p>
+                                    </div>
+                                    <div class="image-preview" id="preview-1"></div>
+                                </div>
+                                
+                                <div class="image-upload-box">
+                                    <input type="file" id="product-image-2" accept="image/*" class="image-input">
+                                    <div class="image-placeholder">
+                                        <i class='bx bx-image-add'></i>
+                                        <p>Image 2</p>
+                                    </div>
+                                    <div class="image-preview" id="preview-2"></div>
+                                </div>
+                                
+                                <div class="image-upload-box">
+                                    <input type="file" id="product-image-3" accept="image/*" class="image-input">
+                                    <div class="image-placeholder">
+                                        <i class='bx bx-image-add'></i>
+                                        <p>Image 3</p>
+                                    </div>
+                                    <div class="image-preview" id="preview-3"></div>
+                                </div>
+                                
+                                <div class="image-upload-box">
+                                    <input type="file" id="product-image-4" accept="image/*" class="image-input">
+                                    <div class="image-placeholder">
+                                        <i class='bx bx-image-add'></i>
+                                        <p>Image 4</p>
+                                    </div>
+                                    <div class="image-preview" id="preview-4"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group ad-image-container">
+                                <label for="ad-image">Advertisement Image (Optional)</label>
+                                <div class="ad-image-upload">
+                                    <input type="file" id="ad-image" accept="image/*" class="image-input">
+                                    <div class="ad-image-placeholder">
+                                        <i class='bx bx-image-add'></i>
+                                        <p>Upload Ad Image</p>
+                                    </div>
+                                    <div class="image-preview" id="ad-preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Description -->
+                        <div class="form-section">
+                            <h3>Product Description</h3>
+                            <div class="form-group">
+                                <label for="product-description">Description *</label>
+                                <textarea id="product-description" rows="6" placeholder="Enter detailed product description" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-specifications">Specifications</label>
+                                <textarea id="product-specifications" rows="4" placeholder="Enter product specifications (e.g. dimensions, materials, etc.)"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Details -->
+                        
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="secondary-btn">Save as Draft</button>
+                            <button type="submit" class="submit-btn">List Product</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Preview of added products -->
+                <div class="added-products">
+                    <h3>Recently Added Products</h3>
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-list">
+                            <tr>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Products Page -->
+            <div class="page" id="products">
+                <h2 class="page-title">Products</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <div class="product-info">
+                            <div class="product-title">Wireless Headphones</div>
+                            <div class="product-price">$129.99</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <div class="product-info">
+                            <div class="product-title">Smart Watch</div>
+                            <div class="product-price">$199.99</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <div class="product-info">
+                            <div class="product-title">Bluetooth Speaker</div>
+                            <div class="product-price">$79.99</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <div class="product-info">
+                            <div class="product-title">Wireless Mouse</div>
+                            <div class="product-price">$45.99</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <div class="product-info">
+                            <div class="product-title">Mechanical Keyboard</div>
+                            <div class="product-price">$109.99</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <div class="product-info">
+                            <div class="product-title">USB-C Hub</div>
+                            <div class="product-price">$59.99</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+<div id="notification-container"></div>
+    
+
+    <script type="module" src="dashboard.js"></script>
+    <script type="module" src="fav.js"></script>
+</body>
+</html>

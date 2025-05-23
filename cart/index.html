@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <script src="https://kit.fontawesome.com/624d421ee1.js" crossorigin="anonymous"></script>
+
+    <title>Your Cart</title>
+</head>
+<body>
+
+
+    <div class="header">
+        <ul>
+             <a href="products.html"><li>Categories</li></a>
+            <a href="products.html"><li>Products</li></a>
+            <a href="https://www.horeye.me/articles.html"><li>Blog</li></a>
+            <a href="../support"><li>Support</li></a>
+        </ul>
+
+        <a href="../index.html"><div class="logo">
+            <img src="../assets/images/gre.png" alt="logo">
+        </div></a>
+
+        <div class="user">
+            <a href="#"><i class='bx bx-search'></i></a>
+            <a href="#"><i class='bx bx-like'></i></a>
+            <a href="#"><i class='bx bx-cart'></i></a>
+            <a href="#"><i class='bx bx-user' id="user-icon"></i></a>
+        </div>
+    </div>
+
+
+    <div class="user-button">
+        <a href="register.html" class="auth-btn">
+        <i class='bx bx-user-plus'></i>
+        Register
+    </a>
+    <a href="#" class="auth-btn">
+        <i class='bx bx-log-in'></i>
+        Login
+    </a>
+    </div>
+
+
+    <div class="main">
+        <div class="cart-product-left">
+            <div class="cart-product">
+                <div class="image">
+                    <img src="assets/images/seat.jpg" alt="">
+                </div>
+                <div class="details">
+                    <div class="name">
+                        <p class="pro-name">The name of the product goes here, teh name of the product</p>
+                    </div>
+                    <div class="price">
+                        <p class="new-price">$434.99</p>
+                        <p class="old-price">$599.99</p>
+                    </div>
+                </div>
+                <div class="quantity">
+                    <input type="number" id="product-price" value="1" step="1" min="2">
+                </div>
+                <div class="delete">
+                    <i class='bx bx-trash'></i>
+                </div>
+            </div>
+        </div>
+        <div class="cart-checkout-right">
+            <p>Summery</p>
+            <div class="product-price">
+                <p>Subtotal</p>
+                <p class="sub-total">$556</p>
+            </div>
+            <div class="product-price">
+                <p>Delivery</p>
+                <p class="sub-total">$43</p>
+            </div>
+            <div class="product-price">
+                <p>Tax</p>
+                <p class="tax-total">$2</p>
+            </div>
+            <div class="product-price" id="total">
+                <p>Total</p>
+                <p class="total-total">$789</p>
+            </div>
+
+            <button class="checkout-btn" id="proceed-btn">Proceed Checkout</button>
+
+            
+        </div>
+        
+    </div>
+
+
+    <script type="module" src="cart.js"></script>
+    
+</body>
+</html>

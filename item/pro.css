@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #E5E4E2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.header {
+    /* background-color: green; */
+    display: flex;
+}
+
+ul {
+    display: flex;
+    gap: 40px;
+
+}
+
+.header ul a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+    color: black;
+    font-size: 16px;
+}
+
+.logo {
+    position: relative;
+    left: 200px;
+    /* background-color: red; */
+    height: 40px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.user-button {
+    height: 80px;
+    width: 100px;
+    background-color: rgb(227, 223, 218);
+    position: absolute;
+    z-index: 11;
+    right: 50px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.user-button.show {
+  display: flex; /* Show when active */
+}
+
+.auth-btn {
+    width: calc(100% - 0px); /* 130px */
+    height: 40px;
+    background: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.auth-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.auth-btn .bx {
+    font-size: 20px;
+    color: #555;
+}
+
+.user {
+    position: absolute;
+    right: 60px;
+    font-size: 20px;
+    display: flex;
+    gap: 10px;
+    top: 25px;
+
+}
+
+.user a {
+    color: black;
+}
+
+
+.products{
+    height: 500px;
+    width: 100%;
+    position: relative;
+    top: 20px;
+    /* background-color:green; */
+    display: flex;
+}
+
+.left{
+    width: 740px;
+    height: 450px;
+    /* background-color: grey; */
+    display: flex;
+}
+
+.right{
+    width: 450px;
+    height: 450px;
+    /* background-color: rebeccapurple; */
+    position: relative;
+    left: 20px;
+}
+
+.left-side{
+    height: 450px;
+    width: 200px;
+    /* background-color: rosybrown; */
+}
+
+.right-side{
+    height: 450px;
+    width: 500px;
+    /* background-color: lightcoral; */
+}
+
+
+.side{
+    height: 100px;
+    width: 120px;
+    /* background-color: lightseagreen; */
+    border-radius: 20px;
+    position: relative;
+    left: 40px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.side img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.right-side{
+    position: relative;
+    left: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.right-side img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.price{
+    display: flex;
+    gap: 10px;
+    position: relative;
+    bottom: 10px;
+    height: 40px;
+}
+
+.price p{
+    font-size: 22px;
+    font-weight: 500;
+
+}
+
+.price .old-price{
+    text-decoration: line-through;
+    color: grey;
+}
+
+.reviews{
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+    /* background-color: grey; */
+    font-size: 18px;
+    height: 20px;
+    color: rgb(170, 170, 0);
+}
+
+.reviews p{
+    /* overflow: hidden; */
+    font-size: 16px;
+    bottom: 14px;
+    position: relative;
+    color: black;
+}
+
+
+/* style for the selected thumbnail */
+.left-side .side.active {
+  border: 3px solid #610044;  /* or any color you like */
+  border-radius: 20px;   
+        /* optional, for rounded corners */
+}
+
+/* ensure the spacing still looks nice */
+.left-side .side {
+  
+  cursor: pointer;
+}
+
+
+.name{
+    height: 40px;
+    position: relative;
+    /* background-color: white; */
+    position: relative;
+    bottom: 10px;
+}
+
+.name h2{
+    font-size: 26px;
+}
+
+.description{
+    position: relative;
+    bottom: 20px;
+    font-size: 18px;
+}
+
+.cart{
+    height: 45px;
+    width: 220px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: 18px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cart:hover{
+    background-color: black;
+    color: white;
+}
+
+.buy{
+    height: 45px;
+    width: 220px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+}
+
+.buy:hover{
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+}

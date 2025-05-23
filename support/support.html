@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Center - Deeg</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #285704 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 17, 17, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(120, 46, 46, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            placeholder-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin-top: -2rem;
+            border-radius: 2rem 2rem 0 0;
+            padding: 3rem 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #a6ea66, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #3d8e04, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .action-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .action-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Live Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, #3d8e04, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chat-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Features Section */
+        .features-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #3d8e04, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chat-btn {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+        .logo{
+            width: 120px;
+            height: 50px;
+            /* background-color: rebeccapurple; */
+            overflow: hidden;
+        }
+
+        .logo img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <img src="assets/images/gre.png" alt="">
+            </div>
+            
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>How can we help you?</h1>
+            <p>Get instant answers to your questions or connect with our support team for personalized assistance</p>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for help articles, FAQs, or topics...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2 class="section-title">Quick Help</h2>
+                <div class="actions-grid">
+                    <div class="action-card" onclick="handleAction('orders')">
+                        <div class="action-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3>Track Your Order</h3>
+                        <p>Check the status of your recent orders and get delivery updates</p>
+                    </div>
+                    <div class="action-card" onclick="handleAction('returns')">
+                        <div class="action-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h3>Returns & Refunds</h3>
+                        <p>Start a return, check return status, or learn about our refund policy</p>
+                    </div>
+                    <div class="action-card" onclick="handleAction('account')">
+                        <div class="action-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h3>Account Settings</h3>
+                        <p>Manage your profile, payment methods, and account preferences</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            How do I track my order?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can track your order by logging into your account and visiting the "My Orders" section. You'll also receive tracking information via email once your order ships. Use the tracking number provided to get real-time updates on your package location.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            What is your return policy?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer a 30-day return policy for most items. Products must be in original condition with tags attached. Simply initiate a return through your account, print the prepaid return label, and ship the item back to us. Refunds are processed within 5-7 business days.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            How long does shipping take?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Standard shipping typically takes 3-5 business days, while express shipping takes 1-2 business days. Free shipping is available on orders over $50. International shipping times vary by location and can take 7-14 business days.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Can I change or cancel my order?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Orders can be modified or cancelled within 1 hour of placement. After this window, orders enter our fulfillment process and cannot be changed. Contact our support team immediately if you need to make changes to a recent order.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Do you offer international shipping?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we ship to over 50 countries worldwide. International shipping costs and delivery times vary by destination. Customs duties and taxes may apply and are the responsibility of the customer. Check our shipping page for specific country information.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <div class="container">
+                    <h2 class="section-title">Why Choose Our Support</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>24/7 Support</h3>
+                            <p>Round-the-clock assistance whenever you need help</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Live Chat</h3>
+                            <p>Instant support through our real-time chat system</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>Expert Team</h3>
+                            <p>Knowledgeable support agents ready to solve your problems</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Secure Help</h3>
+                            <p>Your privacy and data security are our top priorities</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <h2 class="section-title">Still Need Help?</h2>
+                <p>Choose the best way to get in touch with our support team</p>
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p>support@deeg.horeye.me</p>
+                        <p>Response within 2 hours</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone Support</h3>
+                        <p>8000</p>
+                        <p>Mon-Fri: 9AM-9PM EST</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <h3>Social Media</h3>
+                        <p>@DeegSupport</p>
+                        <p>Quick responses on Twitter</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Live Chat Button -->
+    <button class="chat-btn" onclick="openLiveChat()">
+        <i class="fas fa-comments"></i>
+        Live Chat
+    </button>
+
+    <script>
+        // FAQ Toggle Functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+
+        // Handle Action Cards
+        function handleAction(action) {
+            switch(action) {
+                case 'orders':
+                    alert('Redirecting to Order Tracking...');
+                    break;
+                case 'returns':
+                    alert('Opening Returns Center...');
+                    break;
+                case 'account':
+                    alert('Redirecting to Account Settings...');
+                    break;
+                default:
+                    alert('Feature coming soon!');
+            }
+        }
+
+        // Live Chat Function
+        function openLiveChat() {
+            // Simulate opening live chat
+            const chatBtn = document.querySelector('.chat-btn');
+            chatBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting...';
+            
+            setTimeout(() => {
+                chatBtn.innerHTML = '<i class="fas fa-comments"></i> Chat Active';
+                chatBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                
+                // Simulate chat window (you would integrate with actual chat service)
+                setTimeout(() => {
+                    alert('Live chat connected! A support agent will be with you shortly.');
+                    chatBtn.innerHTML = '<i class="fas fa-comments"></i> Live Chat';
+                    chatBtn.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                }, 1000);
+            }, 2000);
+        }
+
+        // Search Functionality
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-box').value;
+            if (searchTerm.trim()) {
+                alert(`Searching for: "${searchTerm}"`);
+                // Implement actual search functionality here
+            }
+        });
+
+        // Search on Enter key
+        document.querySelector('.search-box').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-btn').click();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.style.backdropFilter = 'blur(20px)';
+            }
+        });
+    </script>
+</body>
+</html>

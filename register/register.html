@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <title>Join StreamWave | Create Your Account</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --secondary: #F43F5E;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --white: #FFFFFF;
+            --bg-light: #F9FAFB;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        
+        .container {
+            display: flex;
+            padding-top: 20px;
+            min-height: 100vh;
+        }
+        
+        .promo-section {
+            flex: 1;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .promo-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .promo-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .promo-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .features {
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .feature i {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .testimonial {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        .form-section {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--white);
+        }
+        
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+        
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-google {
+            background-color: var(--white);
+            color: var(--text-dark);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-google:hover {
+            background-color: #f9fafb;
+        }
+        
+        .btn-google img {
+            height: 20px;
+            margin-right: 8px;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--text-light);
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e5e7eb;
+        }
+        
+        .divider span {
+            padding: 0 1rem;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column-reverse;
+            }
+            
+            .promo-section, .form-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #E5E4E2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: #FAFAFA;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.header{
+    /* background-color: green; */
+    display: flex;
+}
+
+
+.cat{
+    max-width: 280px;
+    min-width: 140px;
+    width: auto;
+    flex: 10 0 auto;
+    width: fit-content;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.cat.active {
+    background-color: black;
+    color: white;
+  }
+
+ul{
+    display: flex;
+    gap: 40px;
+    
+}
+
+.header ul a{
+    text-decoration: none;
+}
+
+ul li{
+    list-style: none;
+    color: black;
+    font-size: 16px;
+    position: relative;
+    top: 10px;
+    left: 40px;
+}
+
+.logo{
+    position: relative;
+    left: 200px;
+    /* background-color: red; */
+    height: 40px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.user{
+    position: absolute;
+    right: 60px;
+    font-size: 20px;
+    display: flex;
+    gap: 10px;
+    top: 25px;
+    
+}
+
+.user a{
+    color: black;
+    position: relative;
+    bottom: 20px;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="header">
+        <ul>
+             <a href="products.html"><li>Categories</li></a>
+            <a href="products.html"><li>Products</li></a>
+            <a href="https://www.horeye.me/articles.html"><li>Blog</li></a>
+            <a href="../support"><li>Support</li></a>
+        </ul>
+
+        <a href="index.html"><div class="logo">
+            <img src="assets/images/gre.png" alt="logo">
+        </div></a>
+
+        <div class="search"></div>
+
+        <div class="user">
+            <a href="#"><i class='bx bx-search'></i></a>
+            <a href=""><i class='bx bx-like'></i></a>
+            <a href="cart.html"><i class='bx bx-cart'></i></a>
+            <a href="#"><i class='bx bx-user'></i></a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Side: Promotional Content -->
+        <div class="promo-section">
+            <div class="promo-content">
+                <h2 class="promo-title">Explore Your Need Shops on Online</h2>
+                <p class="promo-subtitle">Buy everything in your mind and get delivered quickly on time</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Access to over 10,000+ premium titles</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Watch on any device, anytime</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Cancel subscription anytime</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>New releases every week</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"StreamWave has completely changed how I enjoy entertainment. The quality and variety are unmatched!"</p>
+                    <p class="testimonial-author">- Sarah J., Premium Member</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side: Registration Form -->
+        <div class="form-section">
+            <div class="form-container">
+                <h2 class="form-title">Create Your Account</h2>
+                
+                <!-- Google Sign-Up Button -->
+                <button class="btn btn-google">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48">
+                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                        <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path>
+                        <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path>
+                        <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                    </svg>
+                    Continue with Google
+                </button>
+                
+                <!-- Divider -->
+                <div class="divider">
+                    <span>or register with email</span>
+                </div>
+                
+                <!-- Registration Form -->
+                <form>
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Create a password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#">Log In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="reg.js"></script>
+</body>
+</html>

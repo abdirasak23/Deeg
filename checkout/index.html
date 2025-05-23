@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="checkout.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+
+    <script src="https://kit.fontawesome.com/624d421ee1.js" crossorigin="anonymous"></script>
+
+    <title>Check Out</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <ul>
+             <a href="../products"><li>Categories</li></a>
+            <a href="../products"><li>Products</li></a>
+            <a href="https://www.horeye.me/articles.html"><li>Blog</li></a>
+            <a href="../support"><li>Support</li></a>
+        </ul>
+
+        <a href="../index.html"><div class="logo">
+            <img src="../assets/images/gre.png" alt="logo">
+        </div></a>
+
+        <div class="user">
+            <a href="#"><i class='bx bx-search'></i></a>
+            <a href="#"><i class='bx bx-like'></i></a>
+            <a href="cart.html"><i class='bx bx-cart'></i></a>
+            <a href="#"><i class='bx bx-user' id="user-icon"></i></a>
+        </div>
+    </div>
+
+    <div class="user-button">
+        <a href="../register.html" class="auth-btn">
+        <i class='bx bx-user-plus'></i>
+        Register
+    </a>
+    <a href="#" class="auth-btn">
+        <i class='bx bx-log-in'></i>
+        Login
+    </a>
+    </div>
+
+
+    <div class="main">
+        <div class="left">
+            <div class="payment">
+                <div class="payment-option" role="radio" aria-checked="false">
+                    <img src="../assets/images/waafi.png" alt="">
+                </div>
+                <div class="payment-option">
+                    <img src="../assets/images/edahab.png" alt="">
+                </div>
+                <div class="payment-option">
+                    <img src="../assets/images/world.png" alt="">
+                </div>
+            </div>
+
+            <div class="payment-controller">
+                <div class="pay-details">
+                    <div class="input-group" id="names">
+                        <label for="email">Phone Number</label>
+                        <input type="text" placeholder="+25261*******" required>
+                    </div>
+                    <div class="amounts" id="amount">
+                        <label for="email">Ammount</label>
+                        <div class="amount">
+                            <p>$56654</p>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Pay and Confirm</button>
+                <div class="query">
+                    <div class="whats-app"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="instaructions">
+                        <p>Please enter a correct a number and pay the ammount of $5556 and proceed and confirm the
+                            payment.</p>
+                    </div>
+                    <button class="chat">Chat</button>
+                </div>
+            </div>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <div class="contacts">
+                <p class="contacts-title">Contacts</p>
+                <div class="input-group">
+                    <input type="text" placeholder="email" required>
+                </div>
+                <div class="text-me">
+                    <input type="checkbox" id="text-me">
+                    <p>Text me</p>
+                </div>
+            </div>
+
+            <div class="delivery">
+                <p class="delivery-title">Delivery</p>
+
+                <div class="names">
+                    <div class="input-group" id="names">
+                        <label for="email">First Name</label>
+                        <input type="text" placeholder="first name" required>
+                    </div>
+                    <div class="input-group" id="names">
+                        <label for="email">Last Name</label>
+                        <input type="text" placeholder="last name" required>
+                    </div>
+                </div>
+                <div class="names">
+                    <div class="input-group" id="names">
+                        <label for="email">Address line 1</label>
+                        <input type="text" placeholder="Write your address" required>
+                    </div>
+                    <div class="input-group" id="names">
+                        <label for="email">Address line 2</label>
+                        <input type="text" placeholder="Write your near address" required>
+                    </div>
+                </div>
+                <div class="names">
+                    <div class="input-group" id="names">
+                        <label for="country">Country</label>
+                        <select id="country" name="country" required>
+                            <option value="" disabled selected>Select a country</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="names">
+                        <label for="email">State</label>
+                        <input type="text" placeholder="Write your State" required>
+                    </div>
+                </div>
+                <div class="names">
+                    <div class="input-group" id="names">
+                        <label for="email">City</label>
+                        <input type="text" placeholder="Write your City" required>
+                    </div>
+                    <!-- <div class="input-group" id="names">
+                        <label for="email">Address line 2</label>
+                        <input type="text" placeholder="Write your near address" required>
+                    </div> -->
+                </div>
+                <div class="text-me" class="terms-and-conditions">
+                    <input type="checkbox" id="text-me">
+                    <p>I have read and agreen the terms and conditions</p>
+                </div>
+            </div>
+        </div>
+        <div class="rights">
+            <div class="cart-details">
+                <p>Summery</p>
+                <div class="details">
+                    <div class="product-details">
+                        <div class="pro-name">
+                            <p>The T-shirt of cristiano ronaldo</p>
+                        </div>
+                        <div class="pro-price">
+                            <div class="quantity">
+                                <div class="qua">
+                                    <p>5</p>
+                                </div>
+                            </div>
+                            <p>$280.99</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="product-details">
+                        <div class="pro-name">
+                            <p>The T-shirt of cristiano ronaldo</p>
+                        </div>
+                        <div class="pro-price">
+                            <div class="quantity">
+                                <div class="qua">
+                                    <p>5</p>
+                                </div>
+                            </div>
+                            <p>$280.99</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-prices">
+                    <div class="total">
+                        <p>Sub Total</p>
+                        <p class="so-total">$34.55</p>
+                    </div>
+                </div>
+                <div class="total-prices">
+                    <div class="total">
+                        <p>Delivery</p>
+                        <p class="so-total">$4.55</p>
+                    </div>
+                </div>
+                <div class="total-prices">
+                    <div class="total">
+                        <p>Total</p>
+                        <p class="so-total">$34.55</p>
+                    </div>
+                </div>
+                
+
+            </div>
+            <button type="subAmit" class="btn btn-primary Proceed">Pay Now</button>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        // Get your free API key from https://countrystatecity.in/
+        const API_KEY = 'NXh3U2U2OUJmbURTOUdhbXlxZGNwUnRDc1lYVmp6a0o3WnZqa1pWaA==';
+
+        // Fetch countries
+        fetch('https://api.countrystatecity.in/v1/countries', {
+            headers: { 'X-CSCAPI-KEY': API_KEY }
+        })
+            .then(response => response.json())
+            .then(countries => {
+                const countrySelect = document.getElementById('country');
+
+                countries.sort((a, b) => a.name.localeCompare(b.name)).forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.iso2;
+                    option.textContent = country.name;
+                    countrySelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+
+        // Handle country selection change
+        document.getElementById('country').addEventListener('change', function () {
+            const countryCode = this.value;
+            const stateSelect = document.getElementById('state');
+
+            // Reset states
+            stateSelect.innerHTML = '<option value="" disabled selected>Loading states...</option>';
+            stateSelect.disabled = true;
+
+            if (!countryCode) return;
+
+            // Fetch states for selected country
+            fetch(`https://api.countrystatecity.in/v1/countries/${countryCode}/states`, {
+                headers: { 'X-CSCAPI-KEY': API_KEY }
+            })
+                .then(response => response.json())
+                .then(states => {
+                    stateSelect.innerHTML = '<option value="" disabled selected>Select a state</option>';
+
+                    states.sort((a, b) => a.name.localeCompare(b.name)).forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state.iso2;
+                        option.textContent = state.name;
+                        stateSelect.appendChild(option);
+                    });
+
+                    stateSelect.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error fetching states:', error);
+                    stateSelect.innerHTML = '<option value="" disabled selected>Error loading states</option>';
+                });
+        });
+
+
+        // Add this script
+        document.addEventListener('DOMContentLoaded', function () {
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            const paymentController = document.querySelector('.payment-controller');
+
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    paymentOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                        opt.setAttribute('aria-checked', 'false');
+                    });
+                    this.classList.add('selected');
+                    this.setAttribute('aria-checked', 'true');
+                    paymentController.classList.add('show');
+                });
+            });
+        });
+    </script>
+
+
+<script type="module" src="checkout.js"></script>
+<script type="module" src="checkout-auth.js"></script>
+</body>
+
+</html>

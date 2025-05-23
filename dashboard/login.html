@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Modern Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #2b2d42, #4a4e69);
+            overflow: hidden;
+        }
+
+        .login-card {
+            position: relative;
+            width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .card-header h1 {
+            font-size: 2em;
+            color: #2b2d42;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #4a4e69, #2b2d42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-header .underline {
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(45deg, #8d99ae, #4a4e69);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-bottom: 2px solid #8d99ae;
+            background: transparent;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group input:valid {
+            outline: none;
+            border-bottom-color: #4a4e69;
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8d99ae;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:valid ~ label {
+            top: -5px;
+            font-size: 0.8em;
+            color: #4a4e69;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #8d99ae;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #4a4e69, #2b2d42);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #2b2d42, #4a4e69);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .forgot-password a {
+            color: #4a4e69;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: #2b2d42;
+            text-decoration: underline;
+        }
+
+        .social-login {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .loader {
+            display: none;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 2px solid white;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .submit-btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-message {
+            color: #e63946;
+            font-size: 0.85em;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .success-message {
+            color: #2a9d8f;
+            font-size: 0.85em;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="card-header">
+            <h1>Admin Login</h1>
+            <div class="underline"></div>
+        </div>
+
+        <form id="login-form">
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label>Email Address</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label>Password</label>
+                <span class="password-toggle" onclick="togglePassword()">👁</span>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <div class="submit-btn-content">
+                    <span>Sign In</span>
+                    <div class="loader" id="login-loader"></div>
+                </div>
+            </button>
+
+            <div class="error-message" id="error-message"></div>
+            <div class="success-message" id="success-message"></div>
+
+            <div class="forgot-password">
+                <a href="#" id="forgot-password-link">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+    <script type="module">
+        // Import the Supabase client from the CDN
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+        // Initialize Supabase with your project's URL and public anon key
+        const supabaseUrl = "https://fpvuwegibnwucgxieirp.supabase.co";
+        const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwdnV3ZWdpYm53dWNneGllaXJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3MzU2NzEsImV4cCI6MjA1ODMxMTY3MX0.sOmvlv4vjV_EcXze0zYGZSolDst8rg5UqGkc1146Qxw";
+        const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+        // DOM Elements
+        const loginForm = document.getElementById('login-form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+        const loginLoader = document.getElementById('login-loader');
+        const forgotPasswordLink = document.getElementById('forgot-password-link');
+
+        // Check if user is already logged in
+        checkAuthAndRedirect();
+
+        // Login form submission
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            await handleLogin();
+        });
+
+        // Forgot password handler
+        forgotPasswordLink.addEventListener('click', async (event) => {
+            event.preventDefault();
+            await handleForgotPassword();
+        });
+
+        // Login Functionality
+        async function handleLogin() {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (!email || !password) {
+                showError('Please enter both email and password');
+                return;
+            }
+
+            try {
+                // Show loading indicator
+                showLoader(true);
+                hideError();
+                hideSuccess();
+
+                // Sign in with Supabase
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password
+                });
+
+                if (error) throw error;
+
+                // Show success message
+                showSuccess('Login successful! Redirecting...');
+                
+                // Redirect to admin dashboard after a short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';  // Change this to your dashboard URL
+                }, 1500);
+                
+            } catch (error) {
+                showError(error.message || 'Login failed. Please check your credentials.');
+            } finally {
+                showLoader(false);
+            }
+        }
+
+        // Forgot Password Functionality
+        async function handleForgotPassword() {
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                showError('Please enter your email address');
+                return;
+            }
+
+            try {
+                showLoader(true);
+                hideError();
+                hideSuccess();
+
+                const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                    redirectTo: window.location.origin + '/reset-password.html', // Change this to your password reset page
+                });
+
+                if (error) throw error;
+                
+                showSuccess('Password reset link sent to your email');
+            } catch (error) {
+                showError(error.message || 'Failed to send reset link. Please try again.');
+            } finally {
+                showLoader(false);
+            }
+        }
+
+        // Auth Check and Redirect
+        async function checkAuthAndRedirect() {
+            try {
+                const { data: { session }, error } = await supabase.auth.getSession();
+                
+                if (session) {
+                    // User is already logged in, redirect to dashboard
+                    window.location.href = 'index.html'; // Change this to your dashboard URL
+                }
+            } catch (error) {
+                console.error('Auth check error:', error.message);
+            }
+        }
+
+        // UI Helpers
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function hideError() {
+            errorMessage.style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+
+        function hideSuccess() {
+            successMessage.style.display = 'none';
+        }
+
+        function showLoader(show) {
+            loginLoader.style.display = show ? 'block' : 'none';
+        }
+    </script>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>
