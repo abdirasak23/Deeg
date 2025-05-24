@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Add a small delay for better UX
                     setTimeout(() => {
-                        window.location.href = 'checkout.html';
+                        window.location.href = '../checkout';
                     }, 500);
                 });
             }
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Add a small delay for better UX
                     setTimeout(() => {
-                        window.location.href = 'checkout.html';
+                        window.location.href = '../checkout';
                     }, 500);
                 });
                 

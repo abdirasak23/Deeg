@@ -375,7 +375,7 @@ function setupButtons() {
             
             // Wait a moment before redirecting to ensure cart is updated
             setTimeout(() => {
-                window.location.href = 'check-out.html';
+                window.location.href = '../checkout';
             }, 1000);
         });
     }
