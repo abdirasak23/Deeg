@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@200..700&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
@@ -191,12 +193,57 @@ ul li {
 }
 
 
+.ad-container{
+    height: 400px;
+    width: 1200px;
+    background-color: rgba(85, 137, 85, 0.256);
+    position: relative;
+    left: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ad-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.ad-title{
+    position: absolute;
+    left: 360px;
+    height: 120px;
+    width: 500px;
+    /* background-color: rgba(158, 110, 110, 0.612); */
+    top: 200px;
+    font-size: 34px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    font-family: 'Merriweather', sans-serif;
+}
+
+
+.Shop-now{
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    bottom: 20px;
+    background-color: rgb(0, 95, 0);
+    color: white;
+}
+
 .main {
     height: 400px;
     width: 100%;
     /* background-color: yellow; */
     display: flex;
     gap: 40px;
+    position: relative;
+    top: 20px;
 }
 
 .left {
@@ -758,4 +805,88 @@ ul li {
     left: 70px;
     top: -5px;
     color: white;
+}
+
+.discount{
+    height: 400px;
+    width: 100%;
+    /* background-color: green; */
+    display: flex;
+    gap: 20px;
+}
+
+.dis{
+    height: 350px;
+    width: 580px;
+    background-color: red;
+    position: relative;
+    left: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dis img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.dis-info{
+    position: absolute;
+    /* background-color: yellow; */
+    width: 340px;
+    left: 150px;
+    text-align: center;
+    top: 10px;
+    
+
+
+}
+
+.off{
+height: 0px;
+color: white;
+}
+
+.dis-name{
+    font-size: 30px;
+    position: relative;
+    height: 0px;
+    position: relative;
+    color: white;
+}
+
+.off span{
+    color: rgb(255, 200, 2);
+}
+
+.dis-desc{
+    /* height: 0px; */
+    color: white;
+    position: relative;
+    top: 15px;
+}
+
+.shop-now{
+    position: relative;
+    height: 40px;
+    width: 150px;
+    top: 10px;
+    border: none;
+    background-color: rgb(2, 178, 2);
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+#right-dis{
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    text-align: start;
+    left: 10px;
+}
+
+.rights{
+    overflow: hidden;
 }
